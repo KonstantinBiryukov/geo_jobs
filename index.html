@@ -6,11 +6,13 @@
     <title>Display HTML clusters with custom properties</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css"> -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
     <link type="text/css" rel="stylesheet" href="css/map.css">
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js"></script>
     <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css" rel="stylesheet"/>
     <link href="https://api.mapbox.com/mapbox-assembly/v0.23.2/assembly.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -19,34 +21,70 @@
 
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">
-        Geo Jobs</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+    <a class="navbar-brand" href="#">Geo Jobs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu"
             aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 ">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#">Main menu<span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="jobs.html">Jobs_Stat</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="page2.html" data-toggle="tooltip"
+                <a class="nav-link" href="faang.html" data-toggle="tooltip"
                    title="Facebook, Apple, Amazon, Netflix, Google Statistic for all jobs in the USA">
-                    FAANG_STAT</a>
+                    Faang_Stat</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">About the project</a>
+                <a class="nav-link" href="about.html">About the project</a>
             </li>
         </ul>
     </div>
 </nav>
 
-<div id="map"></div>
-<div id="key"></div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<div class="card" style="width: 21rem;">
+    <img src="resources/FAANG.jpg" class="card-img-top" alt="faang_stat">
+    <div class="card-body">
+        <table class="table table-light">
+            <tbody style="color: black;">
+            <tr>
+                <td class="question">What ?</td>
+                <td>FAANG companies job postings data visualization</td>
+            </tr>
+            <tr>
+                <td class="question"> Why?</td>
+                <td>You can see where exactly all US jobs that these companies offer are located</td>
+            </tr>
+            </tbody>
+        </table>
+        <a href="faang.html" class="btn btn-primary">FAANG MAP</a>
+    </div>
+</div>
+<div class="card" style="width: 22rem;">
+    <img src="resources/stackoverflow_jobs.png" class="card-img-top" alt="stackoverflow_jobs">
+    <div class="card-body">
+
+        <table class="table table-light">
+            <tbody style="color: black;">
+            <tr>
+                <td class="question">What ?</td>
+                <td>Stackoverflow job postings data visualization for different technologies across the US</td>
+            </tr>
+            <tr>
+                <td class="question"> Why?</td>
+                <td>You can see which skills and where are in most demand</td>
+            </tr>
+            </tbody>
+        </table>
+
+        <a href="jobs.html" class="btn btn-primary">stackoverflow jobs MAP</a>
+    </div>
+</div>
+
 <script src="data/jobs.js"></script>
 <script src="js/main-v2.js"></script>
 </body>
