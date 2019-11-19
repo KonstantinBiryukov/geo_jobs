@@ -73,3 +73,11 @@ th {
 .card-body {
     padding-top: 0;
 }
+
+.about > .card-img-top {
+    height: 200px;
+}
+
+.amazon-bug {
+    width: 60%;
+}
