@@ -12,7 +12,7 @@ body {
     bottom: 0;
     right: 0;
     width: 100%;
-    height: 92%
+    height: 100%;
 }
 
 #key {
@@ -35,21 +35,21 @@ th {
     color: #ff6666;
 }
 
-#faang {
-    top: 0;
-    left: 0;
-    position: absolute;
-    margin: 10px;
-}
+/*#faang {*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*position: absolute;*/
+    /*margin: 10px;*/
+/*}*/
 
-.lists {
-    margin: 5px;
-    padding: 10px 20px 10px 10px;
-    overflow: auto;
-    height: 500px;
-    max-width: 100px;
-    border: 1px solid black;
-}
+/*.lists {*/
+    /*margin: 5px;*/
+    /*padding: 10px 20px 10px 10px;*/
+    /*overflow: auto;*/
+    /*height: 500px;*/
+    /*max-width: 100px;*/
+    /*border: 1px solid black;*/
+/*}*/
 
 .navbar {
     width: 100%;

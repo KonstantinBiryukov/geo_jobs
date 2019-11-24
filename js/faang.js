@@ -3,20 +3,22 @@ mapboxgl.accessToken = 'pk.eyJ1IjoibG9iZW5pY2hvdSIsImEiOiJjajdrb2czcDQwcHR5MnFyc
 const map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v11',
-    zoom: 2,
+    zoom: 3,
     center: [-90.1878, 38.6260]
 });
 
-const colors = ['#8dd3c7', '#bebada', '#fb8072'];
+const colors = ['#8dd3c7', '#bebada', '#fb8072',"#80b1d3"];
 
 const colorScale = d3.scaleOrdinal()
-    .domain(["Netflix", "Facebook Careers", "Apple  "])
+    .domain(["Netflix", "Facebook Careers", "Apple  ", "Amazon"])
     .range(colors);
 
 // filters to define our categories using conditional logic
 const netflix = ['==', ['get', 'Website'], 'Netflix'];
 const facebook = ['==', ['get', 'Website'], 'Facebook Careers'];
 const apple = ['==', ['get', 'Website'], 'Apple  '];
+const amazon = ['==', ['get', 'Website'], 'Amazon'];
+
 
 map.on('load', () => {
     // add a clustered GeoJSON source for progLanguages
@@ -24,13 +26,15 @@ map.on('load', () => {
         'type': 'geojson',
         'data': faang,
         'cluster': true, // to enable clustering to the source
-        'clusterRadius': 100,
+        'clusterRadius': 75, //100
         'clusterProperties': { // keep separate counts for each lang category in a cluster,
             // defining the categories we want to keep track of; '+' returns the sum of the inputs,
             // 'case' selects the first output whose corresponding test condition evaluates to true, or the fallback value otherwise.
             'netflix': ['+', ['case', netflix, 1, 0]],
             'facebook': ['+', ['case', facebook, 1, 0]],
-            'apple': ['+', ['case', apple, 1, 0]]
+            'apple': ['+', ['case', apple, 1, 0]],
+            'amazon': ['+', ['case', amazon, 1, 0]]
+
         }
     });
 
@@ -44,6 +48,7 @@ map.on('load', () => {
                 netflix, colorScale('netflix'),
                 facebook, colorScale('facebook'),
                 apple, colorScale('apple'),
+                amazon, colorScale('amazon'),
                 '#ffed6f'],
             'circle-radius': 5
         }
@@ -59,6 +64,7 @@ map.on('load', () => {
                 netflix, colorScale('netflix'),
                 facebook, colorScale('facebook'),
                 apple, colorScale('apple'),
+                amazon, colorScale('amazon'),
                 '#ffed6f'],
             'circle-stroke-width': 2,
             'circle-radius': 10,
@@ -125,7 +131,8 @@ map.on('load', () => {
         const data = [
             {type: 'netflix', count: props.netflix},
             {type: 'facebook', count: props.facebook},
-            {type: 'apple', count: props.apple}
+            {type: 'apple', count: props.apple},
+            {type: 'amazon', count: props.amazon}
         ];
 
         const thickness = 10;
@@ -194,7 +201,8 @@ map.on('load', () => {
         const data = [
             {type: 'Netflix', perc: getPerc(props.netflix)},
             {type: 'Facebook', perc: getPerc(props.facebook)},
-            {type: 'Apple', perc: getPerc(props.apple)}
+            {type: 'Apple', perc: getPerc(props.apple)},
+            {type: 'Amazon', perc: getPerc(props.amazon)}
         ];
 
         const columns = ['type', 'perc'];
@@ -233,35 +241,6 @@ map.on('load', () => {
         return div;
     };
 
-//     let uniqueCoordinates = [];
-//
-//     const unique = [...new Set(jobs.features.geometry.coordinates)];
-//     console.log(unique);
-//
-//     jobs.features.forEach(function (marker) {
-//
-//         const unique = [...new Set(ages)];
-//         // if (marker.geometry.coordinates) {
-//         //     console.log(1);
-//         // }
-//
-//         var el = document.createElement('div');
-//         el.className = 'marker';
-//         el.style.backgroundImage = 'url("../resources/47984_thm.png")';
-//         el.style.width = 45 + 'px';
-//         el.style.height = 45 + 'px';
-//
-//         el.addEventListener('click', function () {
-//             window.alert(props);
-//         });
-//
-// // add marker to map
-//         new mapboxgl.Marker(el)
-//             .setLngLat(marker.geometry.coordinates)
-//             .addTo(map);
-//     });
-//
-//     console.log(uniqueCoordinates);
     map.on('data', (e) => {
         if (e.sourceId !== 'faang' || !e.isSourceLoaded) return;
 
