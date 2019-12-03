@@ -80,3 +80,12 @@ th {
 .table-light > tbody {
     color: black;
 }
+
+.header-about-main {
+    font-weight: bold;
+    font: 25px arial, sans-serifpx;
+    color: green;
+}
+.header-about {
+    font-weight: bold;
+}

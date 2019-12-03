@@ -43,18 +43,27 @@
     </div>
 </nav>
 <div class="container-fluid">
-    <div>About the project:</div>
-    <div>Techonology stack:</div>
-    <div>Current issues: <br>
-        1) Amazon.jobs pagination is broken after the 1000th page of jobs.
-        This bug doesn’t allow to go through paginated pages after 1000 out of 1243. <br>
-        “aria-disabled” attribute for the next page is equals to false. <br/>
-        - To reproduce the bug via DevTools: <br/>
-        for (let i = 0; i < 1200; i++) {<br>
-        document.getElementsByClassName ("page-button")[4].click();<br>
-        }<br>
-        <img src="resources/amazon%20bug.png" class="amazon-bug" alt="amazon_bug"><br>
-        2) Google jobs are not presented on the map yet
+    <div><p class="header-about-main">Visualization of demand for software developer jobs regionally in the US.</p></div>
+    <div><p class="header-about">About the project: </p>
+           The demand for different programming languages has varied throughout the last few decades, and this variability
+        is distinguished not only by skill set
+        but by geographical fluctuations across the states. Inspired by a lack of tools to visualize demand for
+        programming job skills by geographic region, this project seeks to create a web application that would pull
+        job listings and add them to a map displaying demand for jobs regionally in the US, namely demand for
+        specific skills. Besides, this project illustrates another use case, visualization of all US job locations
+        from 5 large software companies: Facebook, Amazon, Apple, Netflix, Google. <br>
+           “The power of maps comes from their inherent ability to leverage schemas that your users have been
+        building up for many years”, Data visualization designer, Ryan Sleeper, Practical Tableau. The power of
+        the map is that it can be quickly interpreted by the audience. Graphics and diagrams are not too
+        illustrative when it deals with any geographical distribution. A map allows to distinguish any patterns
+        just in several seconds, especially when we use clusters instead of individual points on the map. This
+        way we can identify areas which has a high density of a chosen variable, in my case a variable is jobs
+        of software development companies.
+    </div>
+    <div><p class="header-about">Techonology stack: </p>Python, HTML5, CSS3, JavaScript, Bootstrap 4, Mapbox, D3.js
+    </div>
+    <div><p class="header-about">Current issues:</p>
+        - Google jobs are not presented on the map yet
     </div>
 </div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
